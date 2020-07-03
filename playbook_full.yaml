@@ -3,9 +3,9 @@
 - hosts: localhost
   connection: local
 
-  vars_prompt:
-    - name: password
-      prompt: FutureClub2020
+  #vars_prompt:
+  #  - name: password
+  #    prompt: FutureClub2020
 
   tasks:
     - name: Create resource group
