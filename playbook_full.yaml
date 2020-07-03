@@ -15,20 +15,20 @@
 
     - name: Create virtual network
       azure_rm_virtualnetwork:
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         name: vNet
         address_prefixes: "10.0.0.0/16"
 
     - name: Add subnet
       azure_rm_subnet:
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         name: webSubnet
         address_prefix: "10.0.1.0/24"
         virtual_network: vNet
 
     - name: Create public IP address
       azure_rm_publicipaddress:
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         allocation_method: Static
         name: webPublicIP
       register: output_ip_address
@@ -39,7 +39,7 @@
 
     - name: Create Network Security Group
       azure_rm_securitygroup:
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         name: networkSecurityGroup
         rules:
           - name: 'allow_rdp'
@@ -68,7 +68,7 @@
     - name: Create a network interface
       azure_rm_networkinterface:
         name: webNic
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         virtual_network: vNet
         subnet_name: webSubnet
         security_group: networkSecurityGroup
@@ -80,7 +80,7 @@
 
     - name: Create VM
       azure_rm_virtualmachine:
-        resource_group: ansible-rg
+        resource_group: ansible-rg-FutureClub
         name: FCVM1
         vm_size: Standard_DS1_v2
         admin_username: admin
