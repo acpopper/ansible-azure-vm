@@ -83,7 +83,7 @@
         resource_group: ansible-rg-FutureClub
         name: FCVM1
         vm_size: Standard_DS1_v2
-        admin_username: admin
+        admin_username: FCadmin
         admin_password: FutureClub2020
         network_interfaces: webNic
         os_type: Windows
