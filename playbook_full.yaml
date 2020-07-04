@@ -5,7 +5,7 @@
 
   #vars_prompt:
   #  - name: password
-  #    prompt: FutureClub2020
+  #    prompt: "Enter local administrator password"
 
   tasks:
     - name: Create resource group
@@ -81,10 +81,10 @@
     - name: Create VM
       azure_rm_virtualmachine:
         resource_group: ansible-rg-FutureClub
-        name: FCVM1
+        name: "{{ VMname }}"
         vm_size: Standard_DS1_v2
         admin_username: FCadmin
-        admin_password: FutureClub2020
+        admin_password: "{{ password }}"
         network_interfaces: webNic
         os_type: Windows
         image:
