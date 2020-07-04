@@ -67,7 +67,7 @@
 
     - name: Create a network interface
       azure_rm_networkinterface:
-        name: webNic
+        name: "{{ webNic }}"
         resource_group: ansible-rg-FutureClub
         virtual_network: vNet
         subnet_name: webSubnet
@@ -85,7 +85,7 @@
         vm_size: Standard_DS1_v2
         admin_username: FCadmin
         admin_password: "{{ password }}"
-        network_interfaces: webNic
+        network_interfaces: "{{ webNic }}"
         os_type: Windows
         image:
           offer: WindowsServer
